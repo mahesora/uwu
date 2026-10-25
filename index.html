@@ -278,6 +278,16 @@
       bottom: 0px;
       right: 0px;
       opacity: 0.3;
+      z-index: 99;
+    }
+
+    .pengembang a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .pengembang a:hover {
+      text-decoration: underline;
     }
 
     @keyframes animate {
@@ -422,7 +432,7 @@
     <div class="quotes">
       <p id="quotation">"Cinta membutuhkan seseorang. Cinta akan memadukan kelebihan dan kekurangan seseorang. Karena
         cinta diciptakan untuk saling melengkapi."</p>
-      <p id="source">Mahesora</p>
+      <p id="source"><a href="https://mahesora.id/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Mahesora</a></p>
     </div>
     <ul class="kotak">
       <li></li>
@@ -439,7 +449,7 @@
     <div class="jam" id="time"></div>
     <div class="ucapan" id="quote"></div>
     <div class="note"></div>
-    <div class="pengembang">Mahesora</div>
+    <div class="pengembang"><a href="https://mahesora.id/" target="_blank" rel="noopener noreferrer">Mahesora</a></div>
   </div>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
@@ -1368,7 +1378,13 @@
       var quoteEl = document.getElementById("quotation");
       var sourceEl = document.getElementById("source");
       if (quoteEl) quoteEl.innerText = `"${random.quote}"`;
-      if (sourceEl) sourceEl.innerText = random.source;
+      if (sourceEl) {
+        if (random.source === "Mahesora") {
+          sourceEl.innerHTML = '<a href="https://mahesora.id/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Mahesora</a>';
+        } else {
+          sourceEl.innerText = random.source;
+        }
+      }
     }
 
     var i = 0;
